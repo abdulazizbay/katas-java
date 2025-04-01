@@ -1,48 +1,58 @@
-//1
-//When squirrels get together for a party, they like to have cigars. A squirrel party is successful when the number of cigars is between 40 and 60, inclusive. Unless it is the weekend, in which case there is no upper bound on the number of cigars. Return true if the party with the given values is successful, or false otherwise.
-//public boolean cigarParty(int cigars, boolean isWeekend){
-//    int min = 40;
-//    int max = 60;
-//    if(cigars >=  min && cigars <= max){
-//        return true;
-//    }else if(cigars >= max && isWeekend){
-//        return true;
-//    }else {
-//        return false;
-//    }
-//}
+Okay, I've reviewed the code snippets you provided. They all appear to be correctly implemented solutions to the problems they describe. Here's a breakdown and a slightly more concise version of the `cigarParty` solution:
 
-//2
-//The parameter weekday is true if it is a weekday, and the parameter vacation is true if we are on vacation. We sleep in if it is not a weekday or we're on vacation. Return true if we sleep in.
-//public boolean sleepIn(boolean weekday, boolean vacation) {
-//    if (!weekday || vacation) {
-//        return true;
-//    } else {
-//        return false;
-//    }
-//}
-//3
-//Given a string, return true if the string starts with "hi" and false otherwise.
-//
-//public boolean startHi(String str) {
-//    if (str.length() >= 2) {
-//        return str.substring(0, 2).equals("hi");
-//    } else {
-//        return false;
-//    }
-//}
+**1. `cigarParty`**
 
-//4
-//Given 2 int values, return whichever value is nearest to the value 10, or return 0 in the event of a tie. Note that Math.abs(n) returns the absolute value of a number.
-//public int close10(int a, int b) {
-//    int diffA = Math.abs(10 - a);
-//    int diffB = Math.abs(10 - b);
-//    if (diffA < diffB) {
-//        return a;
-//    } else if (diffB < diffA) {
-//        return b;
-//    } else {
-//        return 0;
-//    }
-//}
+*   **Problem:** Determine if a squirrel party is successful based on the number of cigars and whether it's the weekend.
 
+*   **Original Solution (yours):**  Correct but can be simplified.
+
+*   **Improved Solution:**
+
+```java
+public boolean cigarParty(int cigars, boolean isWeekend) {
+    if (isWeekend) {
+        return (cigars >= 40); // No upper limit on weekends
+    } else {
+        return (cigars >= 40 && cigars <= 60);
+    }
+}
+```
+
+*   **Explanation of Improvement:**
+
+    *   Avoids unnecessary `else if`. The logic can be expressed more directly.  On weekends, it only needs to check if `cigars >= 40`.  On weekdays, it needs to check if `cigars >= 40 && cigars <= 60`.
+
+**2. `sleepIn`**
+
+*   **Problem:** Determine if we sleep in based on whether it's a weekday or vacation.
+
+*   **Original Solution (yours):** Correct and already quite concise. No real improvement needed.
+
+*   **Alternative (just for demonstration of boolean return):**
+
+```java
+public boolean sleepIn(boolean weekday, boolean vacation) {
+    return !weekday || vacation; // More concise
+}
+```
+
+**3. `startHi`**
+
+*   **Problem:** Check if a string starts with "hi".
+
+*   **Original Solution (yours):** Correct and well-structured. No improvements needed.
+
+**4. `close10`**
+
+*   **Problem:** Return the integer closest to 10, or 0 if they're equally close.
+
+*   **Original Solution (yours):** Correct and clear.  No improvements needed.
+
+**Key takeaways and general advice:**
+
+*   **Boolean Logic:** When working with booleans, remember that you can often simplify expressions by directly returning the result of a boolean comparison or a logical combination of booleans (as shown in the `sleepIn` alternative).
+*   **Readability:** While conciseness is good, prioritize readability. If a longer, more explicit version is easier to understand, it's often better.  Your original solutions were very readable, so this is mostly a matter of personal preference in these cases.
+*   **Testing:**  Always test your code thoroughly with various inputs, especially edge cases (e.g., empty string for `startHi`, equal differences in `close10`).
+*   **Clarity of Conditions:** Make sure your `if` conditions are clear and accurately reflect the requirements of the problem.  Avoid unnecessary complexity.
+
+I hope this comprehensive analysis helps!
