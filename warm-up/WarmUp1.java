@@ -3,13 +3,7 @@
 public boolean cigarParty(int cigars, boolean isWeekend){
     int min = 40;
     int max = 60;
-    if(cigars >=  min && cigars <= max){
-        return true;
-    }else if(cigars >= max && isWeekend){
-        return true;
-    }else {
-        return false;
-    }
+    return (cigars >= min && (cigars <= max || isWeekend));
 }
 
 //2
