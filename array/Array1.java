@@ -1,16 +1,7 @@
-//1
-//Given an array of ints, return true if 6 appears as either the first or last element in the array. The array will be length 1 or more.
-public boolean firstLast6(int[] nums) {
-    return  nums.length >= 1 && (nums[0]==6 || nums[nums.length-1]==6);
-
-}
 
 //2
 //Given 2 arrays of ints, a and b, return true if they have the same first element or they have the same last element. Both arrays will be length 1 or more.
 public boolean commonEnd(int[] a, int[] b) {
-    if(a.length < 1 && b.length < 1){
-        return false;
-    }
     int aFirstNum = a[0];
     int aLastNum = a[a.length-1];
     int bFirstNum = b[0];
